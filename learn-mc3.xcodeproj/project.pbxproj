@@ -13,6 +13,7 @@
 		6B8BEBCC24D08DC20062FE51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BEBCA24D08DC20062FE51 /* Main.storyboard */; };
 		6B8BEBCE24D08DC40062FE51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BEBCD24D08DC40062FE51 /* Assets.xcassets */; };
 		6B8BEBD124D08DC40062FE51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BEBCF24D08DC40062FE51 /* LaunchScreen.storyboard */; };
+		6B8BEBD924D093950062FE51 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BEBD824D093950062FE51 /* alarm.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6B8BEBCD24D08DC40062FE51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B8BEBD024D08DC40062FE51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B8BEBD224D08DC40062FE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B8BEBD824D093950062FE51 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				6B8BEBC824D08DC20062FE51 /* ViewController.swift */,
 				6B8BEBCA24D08DC20062FE51 /* Main.storyboard */,
 				6B8BEBCD24D08DC40062FE51 /* Assets.xcassets */,
+				6B8BEBD824D093950062FE51 /* alarm.mp3 */,
 				6B8BEBCF24D08DC40062FE51 /* LaunchScreen.storyboard */,
 				6B8BEBD224D08DC40062FE51 /* Info.plist */,
 			);
@@ -128,6 +131,7 @@
 				6B8BEBD124D08DC40062FE51 /* LaunchScreen.storyboard in Resources */,
 				6B8BEBCE24D08DC40062FE51 /* Assets.xcassets in Resources */,
 				6B8BEBCC24D08DC20062FE51 /* Main.storyboard in Resources */,
+				6B8BEBD924D093950062FE51 /* alarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

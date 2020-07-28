@@ -7,14 +7,53 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 class ViewController: UIViewController {
-
+    var player: AVAudioPlayer!
+//    let notification = UINotificationFeedbackGenerator()
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        MPVolumeView.setVolume(0.1)
     }
 
+    
+    @IBAction func btnPress(_ sender: UIButton) {
+//        notification.notificationOccurred(.success)
+        MPVolumeView.setVolume(0.3)
+//        hapticsHeavy()
+        vibrate()
+        playSound()
+    }
+    
+    func hapticsHeavy() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+              generator.impactOccurred()
+    }
+    func vibrate() {
+         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+    }
+    func playSound() {
+           let url = Bundle.main.url(forResource: "alarm", withExtension: "mp3")
+           player = try! AVAudioPlayer(contentsOf: url!)
+           player.play()
+                   
+    }
 
+}
+
+extension MPVolumeView {
+  static func setVolume(_ volume: Float) {
+    let volumeView = MPVolumeView()
+    let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
+
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+      slider?.value = volume
+    }
+  }
 }
 
