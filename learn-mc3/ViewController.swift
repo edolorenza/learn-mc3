@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     @IBAction func btnPress(_ sender: UIButton) {
 //        notification.notificationOccurred(.success)
-        MPVolumeView.setVolume(0.3)
+        MPVolumeView.setVolume(1.0)
 //        hapticsHeavy()
         vibrate()
         playSound()
@@ -38,6 +38,13 @@ class ViewController: UIViewController {
          AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
     func playSound() {
+       //silent mode override
+        do {
+           try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch(let error) {
+            print(error.localizedDescription)
+        }
+        
            let url = Bundle.main.url(forResource: "alarm", withExtension: "mp3")
            player = try! AVAudioPlayer(contentsOf: url!)
            player.play()
