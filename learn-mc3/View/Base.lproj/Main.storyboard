@@ -50,6 +50,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="btn" destination="E3b-iT-WZi" id="5cT-tD-P0B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -243,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNm-qV-d9I" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="133"/>
+            <point key="canvasLocation" x="2070" y="108"/>
         </scene>
     </scenes>
     <resources>
