@@ -17,6 +17,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3b-iT-WZi">
                                 <rect key="frame" x="124" y="353" width="166" height="190"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="190" id="2uG-7k-Fxs"/>
                                     <constraint firstAttribute="width" constant="166" id="f9E-uv-heY"/>
@@ -27,6 +28,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2qg-lu-DJH"/>
+                                    <outletCollection property="gestureRecognizers" destination="dS0-a4-OQv" appends="YES" id="tv2-5W-dxj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12E-Rt-2tY">
@@ -55,6 +57,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="dS0-a4-OQv">
+                    <connections>
+                        <action selector="handlePan:" destination="BYZ-38-t0r" id="R4t-8u-LuV"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1180" y="133"/>
         </scene>

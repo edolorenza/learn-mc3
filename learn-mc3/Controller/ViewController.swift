@@ -11,6 +11,7 @@ import AVFoundation
 import MediaPlayer
 
 class ViewController: UIViewController {
+   
     var player: AVAudioPlayer!
     
     @IBOutlet weak var btn: UIButton!
@@ -47,6 +48,24 @@ class ViewController: UIViewController {
            let url = Bundle.main.url(forResource: "alarm", withExtension: "mp3")
            player = try! AVAudioPlayer(contentsOf: url!)
            player.play()
+    }
+    
+    @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
+      // 1
+      let translation = gesture.translation(in: view)
+
+      // 2
+      guard let gestureView = gesture.view else {
+        return
+      }
+
+      gestureView.center = CGPoint(
+        x: gestureView.center.x + translation.x,
+        y: gestureView.center.y + translation.y
+      )
+
+      // 3
+      gesture.setTranslation(.zero, in: view)
     }
 
 }
