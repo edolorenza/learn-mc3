@@ -17,12 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        MPVolumeView.setVolume(0.1)
+        MPVolumeView.setVolume(1.0)
     }
 
     @IBAction func btnPress(_ sender: UIButton) {
         showAnimation()
-        MPVolumeView.setVolume(0.0)
+        MPVolumeView.setVolume(1.0)
         vibrate()
         playSound()
     }
