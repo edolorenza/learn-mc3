@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         } catch(let error) {
             print(error.localizedDescription)
         }//sound file resource
-           let url = Bundle.main.url(forResource: "alarm", withExtension: "mp3")
+           let url = Bundle.main.url(forResource: "polisi", withExtension: "mp3")
            player = try! AVAudioPlayer(contentsOf: url!)
            player.play()
     }
