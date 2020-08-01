@@ -11,20 +11,26 @@ import AVFoundation
 import MediaPlayer
 
 class ViewController: UIViewController {
-   
+    
+    var timer: Timer!
+    var device: AVCaptureDevice!
     var player: AVAudioPlayer!
     
     @IBOutlet weak var btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        MPVolumeView.setVolume(1.0)
+        MPVolumeView.setVolume(0.5)
     }
 
     @IBAction func btnPress(_ sender: UIButton) {
-        showAnimation()
+       guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
+       self.device = device
+        
         MPVolumeView.setVolume(1.0)
+        showAnimation()
         vibrate()
         playSound()
+        playTorch()
     }
     
     func showAnimation() {
@@ -41,14 +47,59 @@ class ViewController: UIViewController {
     func playSound() {
        //silent mode override
         do {
-           try AVAudioSession.sharedInstance().setCategory(.playback)
-        } catch(let error) {
-            print(error.localizedDescription)
+           try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
+        //headset override
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+           try AVAudioSession.sharedInstance().setActive(true)
+       } catch {
+           print(error)
+       
         }//sound file resource
            let url = Bundle.main.url(forResource: "polisi", withExtension: "mp3")
            player = try! AVAudioPlayer(contentsOf: url!)
            player.play()
     }
+    
+     @objc
+     private func playTorch(){
+         if self.timer != nil {
+             self.timer.invalidate()
+             self.timer = nil
+         }
+         
+         // MARK: Background Timer, still not working for Torch mode
+         
+         //        var bgTask = UIBackgroundTaskIdentifier(rawValue: 10)
+         //        bgTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+         //            UIApplication.shared.endBackgroundTask(bgTask)
+         //        })
+         
+         self.timer = Timer()
+         self.timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(playSampleFlash), userInfo: nil, repeats: true)
+     }
+     
+     @objc
+     private func playSampleFlash(){
+         guard self.device.hasTorch else { return }
+         
+         do {
+             try device.lockForConfiguration()
+             
+             if (device.torchMode == AVCaptureDevice.TorchMode.on) {
+                 device.torchMode = AVCaptureDevice.TorchMode.off
+             } else {
+                 do {
+                     try device.setTorchModeOn(level: 1.0)
+                 } catch {
+                     print(error)
+                 }
+             }
+             device.unlockForConfiguration()
+         } catch {
+             print(error)
+         }
+     }
+    
     
     @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
       // 1
