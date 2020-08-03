@@ -12,6 +12,10 @@ import MediaPlayer
 
 class ViewController: UIViewController {
     
+    
+    
+//    var gradientView = GradientView()
+    
     var timer: Timer!
     var device: AVCaptureDevice!
     var player: AVAudioPlayer!
@@ -19,9 +23,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+
+        setGradientBackground()
+        
         MPVolumeView.setVolume(0.5)
     }
 
+
+    
     @IBAction func btnPress(_ sender: UIButton) {
        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
        self.device = device
@@ -34,10 +45,17 @@ class ViewController: UIViewController {
     }
     
     func showAnimation() {
-        let pulse = PulseAnimation(numberOfPulse: 3, radius: 200, postion: self.view.center)
+        let pulse = PulseAnimation(numberOfPulse: 100, radius: 400, postion: self.view.center)
         pulse.animationDuration = 1.0
-        pulse.backgroundColor = #colorLiteral(red: 0.05282949957, green: 0.5737867104, blue: 1, alpha: 1)
+        pulse.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.view.layer.insertSublayer(pulse, below: self.view.layer)
+        
+        let pulse1 = PulseAnimation(numberOfPulse: 100, radius: 400, postion: self.view.center)
+          pulse1.animationDuration = 1.2
+          pulse1.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+          self.view.layer.insertSublayer(pulse1, below: self.view.layer)
+
+        
     }
     
     func vibrate() {
@@ -58,6 +76,20 @@ class ViewController: UIViewController {
            let url = Bundle.main.url(forResource: "polisi", withExtension: "mp3")
            player = try! AVAudioPlayer(contentsOf: url!)
            player.play()
+    }
+    
+    func setGradientBackground() {
+        let colorTop =  UIColor(red: 224.0/255.0, green: 32.0/255.0, blue: 32.0/255.0, alpha: 1.0).cgColor
+        //merah E02020
+        let colorBottom = UIColor(red: 10.0/255.0, green: 99.0/255.0, blue: 172.0/255.0, alpha: 1.0).cgColor
+        //biru 0A63AC
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = self.view.bounds
+
+        self.view.layer.insertSublayer(gradientLayer, at:0)
     }
     
      @objc
@@ -120,6 +152,7 @@ class ViewController: UIViewController {
     }
 
 }
+
 
 //volume slider extension
 extension MPVolumeView {

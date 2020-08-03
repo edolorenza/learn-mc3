@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="190" id="2uG-7k-Fxs"/>
                                     <constraint firstAttribute="width" constant="166" id="f9E-uv-heY"/>
                                 </constraints>
-                                <state key="normal" image="hold_btn">
+                                <state key="normal" title="Button" image="hold_btn">
                                     <color key="titleColor" red="0.97078388930000004" green="0.62381780149999999" blue="0.069418750700000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" red="0.2784313725" green="0.62352941179999999" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -42,7 +42,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.27843137254901962" green="0.5490196078431373" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" systemColor="quaternaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="12E-Rt-2tY" secondAttribute="bottom" constant="55" id="Dfd-HF-VTq"/>
