@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     
     
     
-//    var gradientView = GradientView()
+    @IBOutlet weak var safeLbl: UIButton!
+    @IBOutlet weak var shieldBtn: UIButton!
+    //    var gradientView = GradientView()
     
     var timer: Timer!
     var device: AVCaptureDevice!
@@ -23,11 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-
-        setGradientBackground()
-        
+      
         MPVolumeView.setVolume(0.5)
     }
 
@@ -38,10 +36,13 @@ class ViewController: UIViewController {
        self.device = device
         
         MPVolumeView.setVolume(1.0)
+        setGradientBackground()
         showAnimation()
         vibrate()
+        shieldBtn.setImage(UIImage(named: "button_active"), for: .normal)
         playSound()
         playTorch()
+        safeLbl.setTitle("I'm safe now", for: .normal)
     }
     
     func showAnimation() {
