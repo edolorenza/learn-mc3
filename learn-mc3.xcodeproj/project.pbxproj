@@ -17,6 +17,7 @@
 		6B8BEBCE24D08DC40062FE51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BEBCD24D08DC40062FE51 /* Assets.xcassets */; };
 		6B8BEBD124D08DC40062FE51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BEBCF24D08DC40062FE51 /* LaunchScreen.storyboard */; };
 		6B8BEBD924D093950062FE51 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BEBD824D093950062FE51 /* alarm.mp3 */; };
+		6BBCB10724DC2ACD0038DC8D /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBCB10624DC2ACD0038DC8D /* AlarmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		6B8BEBD024D08DC40062FE51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B8BEBD224D08DC40062FE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B8BEBD824D093950062FE51 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		6BBCB10624DC2ACD0038DC8D /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 			children = (
 				6B8BEBC824D08DC20062FE51 /* ViewController.swift */,
 				6B3577B424D15118002063D9 /* VibrateViewController.swift */,
+				6BBCB10624DC2ACD0038DC8D /* AlarmViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				6B8BEBC924D08DC20062FE51 /* ViewController.swift in Sources */,
 				6B8BEBC524D08DC20062FE51 /* AppDelegate.swift in Sources */,
+				6BBCB10724DC2ACD0038DC8D /* AlarmViewController.swift in Sources */,
 				6B3577B524D15118002063D9 /* VibrateViewController.swift in Sources */,
 				6B3577B724D15DD7002063D9 /* PulseAnimation.swift in Sources */,
 				6B8BEBC724D08DC20062FE51 /* SceneDelegate.swift in Sources */,
